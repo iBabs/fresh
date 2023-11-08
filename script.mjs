@@ -1,63 +1,93 @@
-import  {addnum}  from "./recharge.mjs"
+// let arr = [23, 56,78.90, 69]
+
+// console.log(arr)
 
 
-const ozo = document.getElementById('ozo')
+// // arr.splice(1, 1, "hey"), take 3 props, first is the index you want to 
+// //remove from, the second propr is the number of items you want to remove and
+// // the last is the item you want to add
 
-console.log(ozo)
-const h1 = document.createElement('h1')
+// // const arr2 =arr.slice(3, -1), does as splice but assign to a new arr
+
+// //arr.pop() removes the last element of an array
+// //arr.push() adds what you put in the bracket to the arr from the last
+// //arr.shift() removes the first element of an array
+// //arr.unshift() add fromthe index 0
 
 
-function greet() {
-    alert("hello user")
+// for(let i =0; i < arr.length; i++){
+//     console.log(i,arr[i])
+// }
+
+
+// //for of loops through array
+// let j = 0
+// for(j of arr){
+//     console.log(j)
+// }
+
+// //for in loops through object
+// let person = {
+//     name: 'Anthony',
+//     age: 23,
+//     school: 'Michael Faraday'
+// }
+
+// for (j in person){
+//     console.log(j +':'+person[j])
+// }
+// const newArr = arr.map(per=>per*2)
+
+// console.log(newArr)
+
+// const {name, age, school }= person
+
+// console.log(school)
+
+
+const mem = ['Jane', 'Jack', 'Toba', 'Yemi', 'Audu']
+const m12 = [12, 34, 43, 54, 45]
+
+const m13 = [...mem, ...m12]
+
+console.log(m13)
+
+const groce = {
+    garri: 1000,
+    rice: 12000,
+    beans: 7500,
+    Peak: 2100,
+    milo: 1850
 }
 
-let count = 10
+const { rice, garri, ...food } = groce
+console.log(rice, garri)
 
-setInterval(function () {
-    count--
-    h1.innerHTML = count
-    if (count === 0) { count = 10 }
-}, 1000)
+console.log(food)
 
-ozo.appendChild(h1)
+const newnum = m12.map(i => i * 10)
 
-const date = new Date()
+console.log(newnum.sort())
 
-const newDate = document.querySelector('.date')
+const sortedArr = (arr) => {
+    return arr.sort((a, b) => a - b)
+}
+const bull = [1, 23, 32, 13, 4, 8, 7, 4, 34]
 
-newDate.innerHTML = date.toUTCString()
+const are = sortedArr(bull)
 
-const prosper = document.querySelector('#name')
-const blessing = document.querySelector('#submit')
-const maleek = document.querySelector('.todo')
+console.log(are)
 
-const pablo = num => num * num
+const pupils= [
+    {name: 'Mabel', age: 3},
+    {name: 'Olaoluwa', age: 4},
+    {name: 'Rachelle', age: 2},
+    {name: 'Jonathan', age: 3},
+]
+const higher= pupils.filter(i=> i.age==3).map(i=>i.name)
+console.log(higher)
 
-console.log(pablo(20))
+const total = bull.reduce((a,b)=>{ return a+b},0)
 
-blessing.addEventListener('click', (e) => {
-    e.preventDefault();
-    // alert('I am working')
-    const li = document.createElement('li')
+console.log(total)
 
-    li.innerText = prosper.value
-
-    maleek.appendChild(li)
-
-    li.addEventListener('click', () => {
-        li.style.color = 'red'
-        li.style.fontWeight = 600
-    })
-    li.addEventListener('dblclick', () => {
-        maleek.removeChild(li)
-    })
-    prosper.value = ""
-
-})
-
-
-let yu = 10
-let mi = 25
-console.log(`I have the sum of ${yu + mi}, this is because i added ${yu} and ${mi}`)
-
-console.log(addnum(56))
